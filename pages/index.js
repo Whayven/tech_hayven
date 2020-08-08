@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
-
+import Info from '../components/info';
 
 export default function Home() {
   return (
@@ -8,16 +7,9 @@ export default function Home() {
       <Head>
         <title>TECH Hayven</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Head>      
 
-      <Link href={{ pathname: "projects" }}>
-        <a>Projects</a>
-      </Link>
-      <br></br>
-      <Link href={{ pathname: "posts" }}>
-        <a>Blog</a>
-      </Link>
-
+      <Info />
       
     </div>
   )
