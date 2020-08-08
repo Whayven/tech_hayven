@@ -19,6 +19,8 @@
     "next-with-apollo": "^5.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-markdown": "^4.3.1",
+    "react-moment": "^0.9.7",
     "reactstrap": "^8.5.1"
   }
 }

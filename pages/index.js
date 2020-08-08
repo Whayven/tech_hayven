@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import Projects from '../components/projects'
-import Query from '../components/query'
-import PROJECT_QUERY from '../apollo/queries/project/projects'
+import Head from 'next/head';
+import Link from 'next/link';
+
 
 export default function Home() {
   return (
@@ -11,11 +10,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Query query={PROJECT_QUERY}> 
-        {({ data: { projects } }) => { 
-          return <Projects projects={projects} />; 
-        }}
-      </Query>
+      <Link href={{ pathname: "projects" }}>
+        <a>Projects</a>
+      </Link>
+      <br></br>
+      <Link href={{ pathname: "posts" }}>
+        <a>Blog</a>
+      </Link>
+
+      
     </div>
   )
 }
