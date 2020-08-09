@@ -35,7 +35,7 @@ const Navigation = () => {
               </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/whayven">GitHub</NavLink>
+              <NavLink href="https://github.com/whayven" target="_blank">GitHub</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

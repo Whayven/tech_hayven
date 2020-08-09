@@ -1,12 +1,13 @@
 import Post from "./post";
+import { Container } from "reactstrap";
 
 const Posts = ({ posts }) => {
   return (
-    <div>
+    <Container>
       {posts.map((post, i) => {
         return <Post post={post} key={`post_${post.id}`} />;
       })}
-    </div>
+    </Container>
   );
 };
 

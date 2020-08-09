@@ -1,12 +1,18 @@
 import Project from "./project";
+// import { Container } from "reactstrap";
+import styled from "styled-components";
 
 const Projects = ({ projects }) => {
+  const Container = styled.div`
+    width: 65%;
+    margin: 0 auto;
+  `;
   return (
-    <div>
+    <Container>
       {projects.map((project, i) => {
         return <Project project={project} key={`project_${project.id}`} />;
       })}
-    </div>
+    </Container>
   );
 };
 

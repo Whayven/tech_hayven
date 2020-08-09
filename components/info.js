@@ -18,7 +18,6 @@ const Info = () => {
     width: 80%;
     margin: 1rem auto;
   `;
-  
   return (
     <div>
       <Query query={INFO_QUERY}>
@@ -42,23 +41,24 @@ const Info = () => {
                 </Col>
               </Row>
               <Row>
-                  <Col>
-                    <Markdown source={info.Bio} renderers={{
-                        paragraph: cardStyle
-                    }} />
-                  </Col>
+                <Col>
+                  <Markdown
+                    source={info.Bio}
+                    renderers={{
+                      paragraph: cardStyle,
+                    }}
+                  />
+                </Col>
               </Row>
               <Row>
-                  <Col>
-                    <h4 className="text-center">Skills:</h4>
-                  </Col>
+                <Col>
+                  <h4 className="text-center">Skills:</h4>
+                </Col>
               </Row>
               <Row>
-                  {
-                      info.skills.map((skill, i) => {
-                        return <Col className="text-center">{skill.Name}</Col>
-                      })
-                  }
+                {info.skills.map((skill, i) => {
+                  return <Col key={i} className="text-center">{skill.Name}</Col>;
+                })}
               </Row>
             </Container>
           );
