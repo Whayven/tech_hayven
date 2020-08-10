@@ -25,12 +25,12 @@ const Navigation = () => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar className="ml-sm-auto">
             <NavItem>
-              <Link href={{ pathname: "projects" }}>
+              <Link href={{ pathname: "/portfolio" }}>
                 <a className="nav-link">Projects</a>
               </Link>
             </NavItem>
             <NavItem>
-              <Link href={{ pathname: "posts" }}>
+              <Link href={{ pathname: "/blog/allPosts" }}>
                 <a className="nav-link">Blog</a>
               </Link>
             </NavItem>

@@ -1,4 +1,4 @@
-import Project from "./project";
+import Project from "./project-card";
 // import { Container } from "reactstrap";
 import styled from "styled-components";
 

@@ -1,4 +1,4 @@
-import Post from "./post";
+import Post from "./post-card";
 import { Container } from "reactstrap";
 
 const Posts = ({ posts }) => {

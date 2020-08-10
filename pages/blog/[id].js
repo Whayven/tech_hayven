@@ -1,23 +1,12 @@
-import { useRouter } from "next/router";
-import Query from "../components/query";
-import POST_QUERY from "../apollo/queries/post/post";
-import { initializeApollo } from "../utils/apollo";
+import POSTS_ID_QUERY from "../../apollo/queries/post/allPostIds";
+import POST_QUERY from "../../apollo/queries/post/post";
+import { initializeApollo } from "../../utils/apollo";
 import { Container, Col, Row } from "reactstrap";
 import styled from "styled-components";
 import Markdown from "react-markdown";
 import Moment from "react-moment";
 
-const Post = () => {
-  const router = useRouter();
-  const { data, loading, error } = useQuery(
-    POST_QUERY, {
-        variables: { id: router.query.id }
-    }
-  );
-  if (loading) return <p>Loading...</p>; 
-  if (error) return <p>Error: {JSON.stringify(error)}</p>; 
-
-  const { post } = data;
+const Post = ({post}) => {
   const Heading = styled.h1`
     padding: 0.3rem;
   `;
@@ -73,3 +62,37 @@ const Post = () => {
 };
 
 export default Post;
+
+export async function getStaticPaths() {
+  const apolloClient = initializeApollo();
+
+  const { data } = await apolloClient.query({
+    query: POSTS_ID_QUERY,
+  });
+
+  const { posts } = data;
+  const paths = posts.map((post) => ({
+    params: { id: post.id },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  // Fetch necessary data for the blog post using params.id
+  const apolloClient = initializeApollo();
+
+  const { data } = await apolloClient.query({
+    query: POST_QUERY,
+    variables: { id: params.id },
+  });
+  const { post } = data;
+  return {
+    props: {
+      post: post
+    },
+  };
+}
